@@ -2,44 +2,67 @@ const calcAccordion = () => {
 
 
     const accordion =document.getElementById('accordion'),
-    panelDefault = accordion.querySelectorAll('.panel-default'),
-    collapse = accordion.querySelectorAll('.collapse'),
-    btnCollapsed = accordion.querySelectorAll('a');
-console.log(btnCollapsed)
+    panelDefault = accordion.querySelectorAll('.panel-default'),//их четыре
+    panelРeading = accordion.querySelectorAll('.panel-heading'),//зеленая
+    collapse = accordion.querySelectorAll('.collapse'),//  in
+    accBtn = document.querySelectorAll('.accbtn'),
+    collapseOne = document.querySelector('#collapseOne'),
+    collapseTwo = document.querySelector('#collapseTwo'),
+    collapseThree = document.querySelector('#collapseThree'),
+    collapseFour = document.querySelector('#collapseFour');
+
 //раскрываем аккордион
-    const  togleTabContent = index => {
-        for (let i = 0; i < collapse.length; i++) {
-            if (index === i) {
-                collapse[i].classList.remove('in'); 
-                collapse[i].classList.add('in');          
-            }else{
-                collapse[i].classList.add('in');
-                collapse[i].classList.remove('in'); 
-            }
-        }
-    };
-    accordion.addEventListener('click', event => {
-        event.preventDefault();
-        let target = event.target;
-       
-        target = target.closest('.panel-default');
-        if (target) {
-            panelDefault.forEach((item, i) => {
-                if (item === target) {
-                    togleTabContent(i);
-                }
-            });
-        }
-    });
+     const  togleTabContent = index => {
+         for (let i = 0; i < collapse.length; i++) {
+             if (index === i) {
+                 collapse[i].classList.remove('in'); 
+                 collapse[i].classList.add('in');          
+             }else{
+                 collapse[i].classList.add('in');
+                 collapse[i].classList.remove('in'); 
+             }
+         }
+     };
+    panelРeading.forEach((e) => {
+        e.addEventListener('click', (event) =>{
+            event.preventDefault();
+            let target = event.target;       
+            target = target.closest('.panel-default');
+            if (target) {
+                    panelDefault.forEach((item, i) => {      
+                       if (item === target) {
+                            togleTabContent(i);
+                 }
+              });
+           }
+        })
+    })
+
 
 //работа кнопок "Следующий шаг"
-    // btnCollapsed.forEach((e) => {
-    //    // console.log(e);
-    //     e.addEventListener('click', (event) => {
-    //         const target = event.target;
-    //        //console.log(target);
-    //     });
-    // });
+     accBtn.forEach((e) => {
+        e.addEventListener('click', (event) =>{
+            event.preventDefault();
+            let target = event.target;       
+            target = target.closest('.collapse');
+            console.log(target.className);
+            if (target.className === 'panel-collapse collapse in') {
+                collapseOne.classList.remove('in'); 
+                collapseTwo.classList.add('in'); 
+           }else if(target.className === 'panel-collapse two collapse in'){
+            collapseTwo.classList.remove('in'); 
+            collapseThree.classList.add('in'); 
+           }else if(target.className === 'panel-collapse three collapse in'){
+           collapseThree.classList.remove('in'); 
+           collapseFour.classList.add('in'); 
+           }
+        })
+    })
 
+    const dNone = () => {
+        const dnone = document.querySelector('.d-none');
+        dnone.style.display = 'none';
+    }
+    dNone();
 };
 export default calcAccordion;
