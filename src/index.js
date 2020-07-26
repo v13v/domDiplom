@@ -18,7 +18,7 @@ import showBlock from './modules/showBlock';
 import calcAccordion from './modules/calcAccordion';
 import calc from './modules/calc';
 
-calc();
+calc(10000);
 calcAccordion();
 showBlock();
 popupCheck();

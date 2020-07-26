@@ -45,7 +45,6 @@ const calcAccordion = () => {
             event.preventDefault();
             let target = event.target;       
             target = target.closest('.collapse');
-            console.log(target.className);
             if (target.className === 'panel-collapse collapse in') {
                 collapseOne.classList.remove('in'); 
                 collapseTwo.classList.add('in'); 
@@ -60,8 +59,47 @@ const calcAccordion = () => {
     })
 
     const dNone = () => {
-        const dnone = document.querySelector('.d-none');
-        dnone.style.display = 'none';
+        const dnone = document.querySelector('.d-none'),
+        checkbox = document.getElementById('myonoffswitch');
+       
+
+if(checkbox.checked){
+            
+        dnone.style.display = 'block';
+     }
+    //  if(checkbox.onchecked){
+    //     dnone.style.display = '';
+    //  }
+
+
+
+
+        // checkbox.addEventListener('change', (e)=>{
+        //     let target = e.target
+        //     if (target.checkbox.checked){
+        //         dnone.style.display = 'none';
+        //     }else{
+        //         dnone.style.display = '';
+        //     }
+        //     console.log(target.checkbox.checked);
+        // })
+
+
+
+
+
+
+
+
+       // console.log(checkbox.prop('checked'));
+        // if(checkbox.checked){
+            
+        //     dnone.style.display = 'none';
+        // }else{
+        //     dnone.style.display = '';
+        // }
+        
+        
     }
     dNone();
 };
