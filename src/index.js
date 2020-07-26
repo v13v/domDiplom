@@ -17,7 +17,10 @@ import popupCheck from './modules/popupCheck';
 import showBlock from './modules/showBlock';
 import calcAccordion from './modules/calcAccordion';
 import calc from './modules/calc';
+import consult from './modules/consult';
 
+
+consult(),
 calc(10000);
 calcAccordion();
 showBlock();

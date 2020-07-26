@@ -18,7 +18,9 @@ console.log(calcResult);
         const target = event.target;
         const target1 = event.target;
         let typeValue = target.options[target.selectedIndex].value;
+        console.log(typeValue);
         let typeValue1 = target1.options[target.selectedIndex].value;
+        console.log(typeValue1);
         countSum(typeValue, typeValue1)
      })
  })

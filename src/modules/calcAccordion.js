@@ -63,32 +63,16 @@ const calcAccordion = () => {
         checkbox = document.getElementById('myonoffswitch');
        
 
-if(checkbox.checked){
-            
-        dnone.style.display = 'block';
-     }
-    //  if(checkbox.onchecked){
-    //     dnone.style.display = '';
-    //  }
-
-
-
-
-        // checkbox.addEventListener('change', (e)=>{
-        //     let target = e.target
-        //     if (target.checkbox.checked){
-        //         dnone.style.display = 'none';
-        //     }else{
-        //         dnone.style.display = '';
-        //     }
-        //     console.log(target.checkbox.checked);
-        // })
-
-
-
-
-
-
+         checkbox.addEventListener('change', (e)=>{
+             let target = e.target
+             console.log(target.checked);
+            if (target.checked){
+                dnone.style.display = 'none';
+            }else{
+                dnone.style.display = '';
+            }
+           // console.log(target.checkbox.checked);
+         })
 
 
        // console.log(checkbox.prop('checked'));
@@ -98,8 +82,7 @@ if(checkbox.checked){
         // }else{
         //     dnone.style.display = '';
         // }
-        
-        
+              
     }
     dNone();
 };
